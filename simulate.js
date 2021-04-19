@@ -2,10 +2,10 @@ var array = [];
 var i = 0;
 var j = 0;
 
-var NUM_ELEMENTS = 100;
-var DELAY = 100;
+var numElements = 100;
+var delayTime = 10;
 
-var algoNum = 2;
+var algoNum = 1;
 
 function setup(){
     createCanvas(500,500);
@@ -16,6 +16,7 @@ function setup(){
         drawRectangles(true);
     }else{
         i = 0;
+        j = 0;
         drawRectangles(false);
     }
 }
@@ -31,6 +32,8 @@ function draw(){
         case 3:
             pancakeSort();
             break;
+        default:
+            console.log("error");
     }
 }
 
@@ -45,12 +48,12 @@ function drawRectangles(isHori, index){
         }
         if (isHori){
             rectMode(CENTER);
-            let yCoord = k * (height/NUM_ELEMENTS);
-            rect(width/2, yCoord, array[k], (height/NUM_ELEMENTS));
+            let yCoord = k * (height/numElements);
+            rect(width/2, yCoord, array[k], (height/numElements));
         }else{
             rectMode(CORNER);
-            let xCoord = k * (width/NUM_ELEMENTS);
-            rect(xCoord,height,(width/NUM_ELEMENTS),-array[k]);
+            let xCoord = k * (width/numElements);
+            rect(xCoord,height,(width/numElements),-array[k]);
         }
     }
 }
@@ -77,30 +80,29 @@ function selectionSort(){
             }
         }
         swap(minIndex, i);
-        delay(DELAY);
+        delay(delayTime);
         drawRectangles(false, minIndex);
     }else{
         noLoop();
     }
-    i++;  
+    i++;
 }
 
 function bubbleSort(){
     if (i < array.length){
-      if (array[j] > array[j+1]){
-        swap(j,j+1);
-        delay(DELAY);
-        drawRectangles(false, j+1);
+        if (array[j] > array[j+1]){
+            swap(j,j+1);
+            delay(delayTime);
+            drawRectangles(false, j+1);
         }
         j++;
-        i++;
         if (j == array.length-1){
             j = 0;
+            i++;
         }  
     }else{
         noLoop();
     }
-    
 }
 
 
@@ -124,10 +126,10 @@ function pancakeSort(){
         }
         flip(maxIndex);
         drawRectangles(true, maxIndex);
-        delay(DELAY);
+        delay(delayTime);
         flip(i);
         drawRectangles(true, i);
-        delay(DELAY);
+        delay(delayTime);
     }else{
         noLoop();
     }
@@ -135,7 +137,7 @@ function pancakeSort(){
 }
 
 function generateArray(){
-    for (let k=0;k<NUM_ELEMENTS;k++){
+    for (let k=0;k<numElements;k++){
         array[k] = Math.floor(Math.random() * 500) + 1;
     }
 }
@@ -153,10 +155,21 @@ function setAlgoNum(num){
         case 3:
             name ="pancake sort";
             break;
+        default:
+            console.log("error");
     }
     document.getElementById("algo-name").innerHTML = name;
     setup();
     loop();
+}
+
+function setNumElements(num){
+    let numElements = num;
+}
+
+function setNumElements(value){
+    numElements = value;
+    drawRectangles();
 }
 
 
