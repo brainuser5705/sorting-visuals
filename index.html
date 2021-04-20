@@ -8,13 +8,21 @@
   <body>
     <main>
     </main>
+    
     <h1>Performing: <span id="algo-name"> Bubble sort</span></h1>
-    <input type="button" value="bubble" onclick="setAlgoNum(1)">
-    <input type="button" value="selection" onclick="setAlgoNum(2)">
-    <input type="button" value="pancake" onclick="setAlgoNum(3)">
+    <input type="button" value="bubble" onclick="setAlgo(1)">
+    <input type="button" value="selection" onclick="setAlgo(2)">
+    <input type="button" value="pancake" onclick="setAlgo(2)">
     <hr>
     <label for="num-elements">Number of Elements: </label>
     <input id="num-elements" type="number" value="100" onchange="setNumElements(value)"><br>
-    <script src="simulate.js"></script>
+    
+    
+    <!--<script src="simulate.js"></script>-->
+    <input type="button" value="test" onclick="generateArray()">
+    <script src="canvas.js"></script>
+    <script src="sort.js"></script>
+    <script src="util.js"></script>
+    <script src="pancake.js"></script>
   </body>
 </html>
