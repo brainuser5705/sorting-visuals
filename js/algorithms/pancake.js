@@ -18,13 +18,15 @@ class PancakeSort extends Sort{
                 if (array[k] > array[maxIndex]){
                     maxIndex = k;
                 }
+                this.comparisons++;
             }
             this.flip(array, maxIndex);
-            notify(array, this.orientation, maxIndex);
+            notify(array, maxIndex);
             this.flip(array, this.i);
-            notify(array, this.orientation, this.i);
+            notify(array, this.i);
+            this.swaps += 2;
         }else{
-            noLoop();
+            notifyDone();
         }
         this.i--;
     }
