@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Sorting Visualizer</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+    <script src="js/p5.min.js"></script>
   </head>
   <body>
     <h1>Sorting Visualizer</h1>
@@ -22,10 +22,12 @@
     <input type="button" value="bubble" onclick="setAlgo(1)">
     <input type="button" value="selection" onclick="setAlgo(2)">
     <input type="button" value="pancake" onclick="setAlgo(3)">
+    <input type="button" value="insertion" onclick="setAlgo(4)">
+    <input type="button" value="bogo" onclick="setAlgo(5)">
 
     <hr>
     <label for="num-elements">Number of Elements: </label>
-    <input id="num-elements" type="number" value="100" onchange="setNumElements(value)"><br>
+    <input id="num-elements" type="number" value="3" onchange="setNumElements(value)"><br>
     
     <script src="js/canvas.js"></script>
     <script src="js/sort.js"></script>
@@ -33,6 +35,8 @@
     <script src="js/algorithms/pancake.js"></script>
     <script src="js/algorithms/bubble.js"></script>
     <script src="js/algorithms/selection.js"></script>
+    <script src="js/algorithms/insertion.js"></script>
+    <script src="js/algorithms/bogo.js"></script>
 
   </body>
 </html>

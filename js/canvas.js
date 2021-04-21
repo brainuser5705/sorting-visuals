@@ -1,6 +1,6 @@
 var array = []
 var algo;
-var numElements = 100;
+var numElements = document.getElementById("num-elements").value;
 
 function setup(){
     createCanvas(500,500);
@@ -53,6 +53,12 @@ function setAlgo(num){
         case 3:
             algo = new PancakeSort();
             break;
+        case 4:
+            algo = new InsertionSort();
+            break;
+        case 5:
+            algo = new BogoSort();
+            break;
         default:
             console.log("No algorithm " + num + " found");
     }
@@ -73,7 +79,7 @@ function notify(array, highlight){
     document.getElementById("comparisons").innerHTML = algo.comparisons;
     document.getElementById("swaps").innerHTML = algo.swaps;
 
-    delay(100);
+    //delay(100);
 }
 
 function notifyDone(){
